@@ -1,0 +1,38 @@
+@use 'initials';
+@use 'variables';
+
+@mixin img($url, $width, $heigth, $background-size){
+    width: $width;
+    height: $heigth;
+    background-image:url($url);
+    background-size: $background-size;
+    background-repeat: no-repeat;
+}
+
+@mixin button($width, $heigth, $font-size, $letter-spacing, $background-color, $color, $border-radius){
+    width: $width;
+    height: $heigth;
+    font-size: $font-size;
+    letter-spacing: $letter-spacing;
+    background-color: $background-color;
+    color: $color;
+    border-radius: $border-radius;
+}
+
+@mixin title($color, $font-size, $letter-spacing, $font){
+    color: $color;
+    font-size: $font-size;
+    letter-spacing: $letter-spacing;
+    font-family: $font;
+}
+
+@mixin infoBox($bacground-color, $color, $width, $height, $border-radius){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $bacground-color;
+    color:  $color;
+    width: $width;
+    height: $height;
+    border-radius: $border-radius;
+}

@@ -1,0 +1,655 @@
+@use 'initials';
+@use 'variables';
+@use 'mixins';
+
+.hidden {
+    display: none !important;
+}
+.navbar-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 88px;
+    padding-left: 40px;
+    padding-right: 40px;
+    @media (max-width: 500px){
+        width: 360px;
+        padding-left: 10px;
+        padding-right: 10px;
+        &__btn-cart{
+            position: relative;
+            right: 170px
+        }
+    }
+    & h2{
+        @include mixins.title(variables.$Orange, 22px, 1px, variables.$fontTitle);
+        font-weight: 900;
+         line-height: 16px;
+    }
+    & div{
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }
+    &__btn-ubication{
+        @include mixins.button(301px, 40px, 16px, 1px, variables.$white, variables.$Brown, 8px);
+        font-family: variables.$fontText;
+        line-height: 24px;
+        font-weight: 700;
+        font-style: normal;
+        border: none;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        @media (max-width: 500px){
+            position: relative;
+            right: 95px;
+            top: 60px;
+        }
+        &:hover{
+            cursor: pointer;
+        }
+
+    }
+   
+    &__btn-cart{
+        @include mixins.button(89px, 40px, 15px, 1px, variables.$green, variables.$white, 8px);
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    &__btn-cart img{
+        width: 22px;
+        height: 15px;
+    }
+}
+
+.header-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 38px;
+    @media (max-width: 500px){
+        & div{
+            width: 328px;
+            height: 132px;
+        }
+        & h2{
+            font-size: 14px;
+            width:242px;
+            height: auto;
+            background-size:auto ;
+        }
+    }
+    & div{
+        @include mixins.img('./img/banner.png', 1286px, 250px, contain);
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    & h2{
+        @include mixins.title(variables.$white, '', 0px, variables.$fontText);
+        line-height: 42px;
+    }
+}
+
+.deals-section{
+    margin: 40px;
+    padding: 40px;
+    background-color: variables.$white;
+    border-radius: 16px;
+    box-shadow: 7px 7px 7px 7px variables.$backBody;
+    overflow-x: auto;
+    &__h2{
+        @include mixins.title(variables.$black, 24px, 0px, variables.$fontText)
+    }
+    &__cards-container{
+        display: flex;
+        gap: 30px;
+    }
+    &__cards-article{
+        
+        margin-top: 44px;
+        width: 180px;
+        @media(max-width: 500px){
+            margin-top: 20px;
+        }
+    }
+    &__cards-article h3{
+        background-color: variables.$backPurple;
+        color: variables.$Purple;
+        font-size: 12px;
+        line-height: 16px;
+        width: 59px;
+        height: 24px;
+        padding: 4px;
+        border-radius: 10px;
+    }
+    &__cards-article figure{
+        margin-top: 38px;
+        margin-bottom: 38px;
+        & img{
+            width: 126px;
+            height: 135px;
+        }
+    }
+    &__cards-article div{
+        display: flex ;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: left;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: left;
+        margin-bottom: 8px;
+    }
+
+    &__price-discuented{
+        color: variables.$grey;
+    }
+
+    
+    &__button{
+        @include mixins.button(172px, 40px, 14px, 0em, variables.$green, variables.$white, 8px);
+        padding: 12px, 24px, 12px, 24px;
+        border: none;
+        margin-top: 50px;
+        &:hover{
+            cursor:pointer
+        }
+    }
+}
+
+.theMost-section{
+    box-shadow: 7px 7px 7px 7px variables.$backBody;
+    margin: 40px;
+    padding: 40px;
+    background-color: variables.$white;
+    border-radius: 16px;
+    overflow-x: auto;
+    & h2{
+        width: 192px;
+        height: 22px;
+        font-size: 20px;
+    }
+    &__cards-conteiner{
+        display: flex;
+    }
+
+    &__cards-article figure{
+        margin-top: 45px;
+        margin-bottom: 20px;
+        & img{
+            width: 126px;
+            height: 135px;
+        }
+    }
+    &__cards-article h3{
+        width: 194px;
+        height: 25px;
+        margin-bottom: 8px;
+    }
+    &__name{
+        width: 194px;
+        height: 96px;
+    }
+    &__weight{
+        color: variables.$grey;
+        width: 194px;
+        height: 16px;
+        font-size: 12px;
+        margin-bottom: 24px;
+    }
+    &__button{
+        @include mixins.button(172px, 40px, 14px, 0em, variables.$green, variables.$white, 8px);
+        padding: 12px, 24px, 12px, 24px;
+        border: none;
+        &:hover{
+            cursor:pointer
+        }
+    }
+}
+
+.ubication-modal-container{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #333333db ;
+    
+    & div{
+        position: relative;
+        top: 50px;
+        margin: auto;
+        width: 600px;
+        height:auto ;
+        background-color: variables.$white;
+        display: flex;
+        flex-direction: column;
+        border-radius: 16px;
+        padding: 40px;
+        @media(max-width: 600px){
+            width: 325px;
+        }
+        & input{
+            border-radius: 8px;
+            height: 48px;
+            font-family: variables.$fontText2;
+            padding: 25px
+        }
+        
+    }
+    &__btn-search{
+        @include mixins.button(auto, 48px, 14px, 0em, variables.$green, variables.$white, 8px);
+        border: none;
+        margin-top: 16px;
+    }
+    & p{
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+    &__btn-close{
+        width: 40px;
+        height: 40px;
+        border-radius: 80px;
+        background-color: variables.$black;
+        position: relative;
+        left: 500px;
+        border: none;
+        @media(max-width: 600px){
+            left: 215px;
+            bottom: 15px;
+        }
+        & img{
+            width: 12px;
+            height: 12px;
+        }
+        &:hover{
+            background-color: red;
+            cursor: pointer;
+        }
+    }
+}
+
+.product-modal{
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1685px;
+    background-color: #333333db ;
+    padding: 40px;
+    &__div-modal{
+        background-color: variables.$white;
+        position: relative;
+        top: 30px;
+        left: 70px;
+        width: 1068px;
+        height: 1186px;
+        padding: 40px;
+        @media (max-width: 500px){
+            width: 328px;
+            height: 1292px;
+            left: -25px;
+            padding: 20px;
+        }
+    }
+    &__div-principal{
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        width: 988px;
+        height: 522px;
+        @media (max-width: 500px){
+            flex-direction: column;
+            width: 328px;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            padding-top: 125px;
+        }
+        
+        
+    }
+    &__figure-prduct{
+        height: 522px;
+        width: 522px;
+        & img{
+            width: 473px;
+            height: 373px;
+        }
+        @media (max-width: 500px){
+            width: 190px;
+            height: 190px;
+            & img{
+                width: 172px;
+                height: 135px;
+            }
+        }
+    }  
+        
+
+    
+    &__btn-close{
+        width: 40px;
+        height: 40px;
+        border-radius: 80px;
+        background-color: variables.$black;
+        position: relative;
+        left: 445px;
+        bottom: 60px;
+        border: none;
+        @media(max-width: 600px){
+            left: 255px;
+            bottom: 162px;
+            z-index: 1;
+            
+        }
+        
+        &:hover{
+            background-color: red;
+            cursor: pointer;
+        }
+    }
+    &__img-x{
+        width: 12px;
+        height: 12px;
+    }
+    &__div-info{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        @media (max-width: 500px){
+            width: 328px;
+            & p{
+                width: 296px;
+            }
+            & select{
+                height: 48px;
+                width: 240px;
+            }
+        }
+        & h3{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        & h4{
+            margin-top: 35px;
+        }
+        & select{
+            height: 48px;
+            border-radius: 8px;
+        } 
+      
+    }
+    &__btn-div{
+        @media (max-width: 500px){
+            & input{
+                width:240px;
+                height: 48px;
+                margin-bottom: 15px;
+            }
+            
+        }
+        & input{
+            width: 167px;
+            height: 40px;
+            margin-right: 40px;
+            
+            
+        }
+    }
+    &__btn-agregar{
+        
+            @include mixins.button(235px, 40px, 14px, 0em, variables.$green, variables.$white, 8px);
+            padding: 12px, 24px, 12px, 24px;
+            border: none;
+            &:hover{
+                cursor:pointer
+            }
+        
+    }
+    &__mini-cards{
+        display: flex;
+        overflow-x: auto;
+        @media (max-width:500px){
+            margin-top: 175px;
+        }
+    }
+}
+
+.modal-cart{
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2000px;
+    background-color: #333333db;
+    
+    &__prin-div{
+        background-color: variables.$white;
+        width: 562px;
+        height: 800px;
+        position: relative;
+        right: -787px;
+        @media (max-width: 500px ){
+            right: 3px;
+            width: 360px;
+        }
+    }
+    &__ubicacion{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    &__img-div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 696px;
+        justify-content: center;
+        & figure{
+           @include mixins.img('./img/Family Values Shopping.png', 250px, 193px, contain)
+        }
+        & button{
+            @include mixins.button(235px, 40px, 14px, 0em, variables.$green, variables.$white, 8px);
+            padding: 12px, 24px, 12px, 24px;
+            border: none;
+            &:hover{
+                cursor:pointer
+            }
+        }
+    }
+
+    &__btn-close{
+        width: 40px;
+        height: 40px;
+        border-radius: 80px;
+        background-color: variables.$black;
+        border: none;
+    }
+}
+
+.full-modal-cart{
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2000px;
+    background-color: #333333db;
+    &__ubicacion{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    &__btn-close{
+        width: 40px;
+        height: 40px;
+        border-radius: 80px;
+        background-color: variables.$black;
+        border: none;
+        cursor: pointer;
+        &:hover{
+            background-color: variables.$Orange;
+        }
+    }
+    &__article-container{
+        height: 600px;
+        overflow-x: auto;
+    }
+    & article{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 32px 18px;
+        border: 1px variables.$backBody solid;
+    }
+    &__div1{
+        display: flex;
+        gap: 27px;
+        
+    }
+   
+    &__img{
+            width: 50px;
+            height: 50px;
+    }
+    &__prin-div{
+        background-color: variables.$white;
+        width: 562px;
+        height: 800px;
+        position: relative;
+        right: -787px;
+        // overflow-x: auto;
+        @media (max-width: 500px ){
+            right: 3px;
+            width: 360px;
+        }
+    }
+    &__input-steper{
+        display: flex;
+        align-items: center;
+        width: 167px;
+        height: 40px;
+        padding: 8px 24px;
+        gap: 15px;
+        box-shadow: -1px 1px 25px -2px variables.$backBody;
+        & button{
+            width: 25px;
+            height: 25px;
+            border: none;
+            background-color: variables.$white;
+            font-size: 23px;
+        }
+        & input{
+            border: none;
+        }
+    }
+    &__pay-div{
+        background-color: variables.$green;
+        cursor: pointer;
+        width: 239px;
+        height: 40px;
+        display: flex;
+        color: variables.$white;
+        align-items: center;
+        justify-content: space-around;
+        border: none;
+        border-radius: 8px;
+        
+    }
+    &__btns{
+        position: relative;
+        // bottom: -430px;
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+        background-color: variables.$white;
+        z-index: 1;
+    }
+    &__hollow-btn{
+        border: none;
+        color: variables.$grey;
+        background-color: variables.$white;
+        cursor: pointer;
+        &:hover{
+            color: variables.$greyBlue;
+        }
+    }
+}
+
+.pay-section{
+    width: 100vw;
+    height: 100vh;
+    & article{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px variables.$backBody solid;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        padding: 10px 20px 10px 10px ;
+        @media(max-width: 500px){
+            justify-content: flex-start;
+        }
+    }
+    &__back-container{
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        
+    }
+    &__btn-back{
+        width: 40px;
+        height: 40px;
+        border-radius: 80px;
+        background-color: variables.$black;
+        border: none;
+        cursor: pointer;
+        &:hover{
+            background-color: variables.$Orange;
+        }
+    }
+
+    &__pay-items{
+        display: flex;
+        gap: 130px;
+        padding: 40px;
+        @media(max-width: 500px){
+            gap: 40px;
+            flex-direction: column;
+        }
+    }
+    &__items{
+        width: 630px;
+        height: 705px;
+        box-shadow: -1px 1px 25px -2px variables.$backBody;
+        padding: 16px 40px 16px 16px;
+        overflow-y: auto;
+        @media(max-width: 500px){
+            margin-left: -35px;
+            width: 530px;
+        }
+    }
+}
